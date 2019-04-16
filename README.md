@@ -8,6 +8,6 @@ I think I want a job cleaning mirrors.
 Its something I could really see myself doing. 🎉
 
 ## app.rb
-First version of the game where 2 fighters automatically fight
+First version of the game where 2 fighters automatically fight.
 ## app_2.rb
 2nd version of the game, where the user can make choices to fight 2 computer players.
