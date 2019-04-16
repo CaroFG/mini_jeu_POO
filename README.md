@@ -11,3 +11,6 @@ Its something I could really see myself doing. 🎉
 First version of the game where 2 fighters automatically fight.
 ## app_2.rb
 2nd version of the game, where the user can make choices to fight 2 computer players.
+
+## app_3.rb
+3rd version of the game, where the user can make choices to fight 4 computer player
