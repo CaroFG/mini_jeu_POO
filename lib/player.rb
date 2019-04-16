@@ -10,7 +10,7 @@ class Player
 
 	# Méthode pour afficher les points de vie du personnage
 	def show_state
-		return "#{@name} a #{@life_points} points de vie." 
+		return "#{@name} a #{@life_points} points de vie" 
 	end
 
 	# Méthode pour obtenir un nombre de dégats au hasard
@@ -34,7 +34,7 @@ class Player
 		# On enlève les dégats aux points de vie et on vérifie si le perso est mort grâce à gets_damage
 		attacked_player.gets_damage(damage)
 		# On affiche le résultat
-		puts "Il/elle a infligé #{damage} points de dégats à #{attacked_player.name}"
+		puts "Il/elle a infligé #{damage} points de dégats à #{attacked_player.name}\n\n"
 
 		# Si les points de vie sont inférieurs ou égal à 0, le personnage est mort
 		# et on prévient l'utilisateur
@@ -63,7 +63,7 @@ class HumanPlayer < Player
 
 	def show_state
 		# On modifie le show_state pour ajouter le niveau de l'arme
-		return puts "#{@name} a #{@life_points} points de vie et possède une arme de niveau #{@weapon_level}." 
+		return "#{@name} a #{@life_points} points de vie et possède une arme de niveau #{@weapon_level}" 
 	end	
 
 	def compute_damage
@@ -75,7 +75,7 @@ class HumanPlayer < Player
 	def search_weapon
 		# On trouve au hasard une arme de niveau 1 à 6
 		weapon_found = rand(1..6)
-		puts "Bravo, tu as trouvé une arme de niveau #{weapon_found}."
+		puts "Bravo, vous avez trouvé une arme de niveau #{weapon_found}"
 
 		# Si l'arme trouvée est d'un niveau supérieur à celle qu'on à, on la garde
 		# et applique son bonus de dégats
@@ -95,25 +95,23 @@ class HumanPlayer < Player
 		# trouve un health pack de +50 points de vie, si le résultat vaut 6,
 		# un de +80 points de vie.
 		if roll_dice == 1 
-			puts "Dommage, tu n'as rien trouvé"
+			puts "Dommage, vous n'avez rien trouvé"
 
 		elsif roll_dice >= 2 && roll_dice <= 5 
-			puts "Bravo tu as trouvé un pack +50 points de vie"
-			if @life_points + 50 > 100 
+			puts "Bravo vous avez trouvé un pack +50 points de vie"
+			if (@life_points + 50) > 100 
 				# Si le health pack fait dépasser les points de vie max (100),
 				# on repasse lesp oints de vie à 100.
-				life_points = 100
+				@life_points = 100
 			else @life_points += 50
 			end
 
 		elsif roll_dice == 6
-			puts "Excellent, tu as trouvé un super pack +80 points de vie"
-			if @life_points + 80 > 100
-				life_points = 100
-			else life_points += 80
+			puts "Excellent, vous avez trouvé un super pack +80 points de vie"
+			if (@life_points + 80) > 100
+				@life_points = 100
+			else @life_points += 80
 			end
 		end
-		
 	end
-
 end
