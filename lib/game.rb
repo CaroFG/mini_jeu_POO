@@ -8,7 +8,7 @@ class Game
 	end
 
 	def kill_player(player_to_kill)
-		@enemies.delete(player_to_kill.downcase)
+		@enemies.delete(player_to_kill)
 	end
 
 	def is_still_ongoing?
@@ -55,28 +55,23 @@ def menu_choice(choice)
 		index_string = index.to_s
 		if choice == index_string
 			human_player.attacks(enemies[index])
+			if enemies[index].life_points <= 0
+				kill_player(enemies[index])
+			end
 		end
 	end	
 end
 
-def enemies_attack(attacked_player)
-		# On récupère les dégats aléatoires grâce à compute_damage
-		damage = compute_damage
-		# On dit à l'utilisateur qui attaque qui
-		puts "#{@name} attaque #{human_player.name}"
-		# On enlève les dégats aux points de vie et on vérifie si le perso est mort grâce à gets_damage
-		attacked_player.gets_damage(damage)
-		# On affiche le résultat
-		puts "Il/elle a infligé #{damage} points de dégats à #{attacked_player.name}\n\n"
-
-		# Si les points de vie sont inférieurs ou égal à 0, le personnage est mort
-		# et on prévient l'utilisateur
-		if attacked_player.life_points <= 0
-			puts "#{attacked_player.name} est mort(e)"
-		end	
-	
+def enemies_attack
+		enemies.each do |enemy|
+			enemy.attacks(human_player)
+		end
 end	
-	
+
+def end
+
+
+end	
 
 
 end
