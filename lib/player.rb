@@ -12,6 +12,7 @@ class Player
 		return puts "#{@name} a #{@life_points} points de vie." 
 	end
 
+	# Méthode pour obtenir un nombre de dégats au hasard
 	def compute_damage
 		return rand(1..6)
 	end
@@ -23,19 +24,21 @@ class Player
 		# Si les points de vie sont inférieurs ou égal à 0, le personnage est mort
 		# et on prévient l'utilisateur
 		if @life_points	<= 0 
-			puts "#{@name} est mort."
+			puts "#{@name} est mort(e)."
 		end	
 	end
 
 	# Méthode pour qu'un joueur en attaque un autre
-	def attacks(player2)
+	def attacks(attacked_player)
+		# On récupère les dégats aléatoires grâce à compute_damage
 		damage = compute_damage
-		puts "#{@name} attaque #{player2.name}"
-		player2.gets_damage(damage)
-		puts "#{@name} inflige #{damage} points de dégats à #{player2.name}"
+		# On dit à l'utilisateur qui attaque qui
+		puts "#{@name} attaque #{attacked_player.name}"
+		# On enlève les dégats aux points de vie et on vérifie si le perso est mort grâce à gets_damage
+		attacked_player.gets_damage(damage)
+		# On affiche le résultat
+		puts "#{@name} a infligé #{damage} points de dégats à #{attacked_player.name}"
 	end
 
-		# Méthode pour obtenir un nombre de dégats au hasard
-	
 
 end
