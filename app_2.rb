@@ -70,6 +70,7 @@ while (enemies[0].life_points > 0 || enemies[1].life_points > 0) && human.life_p
 	puts "----------------------------------\n"
 
 	# On récupère le choix du joueur
+	print "> "
 	choix = gets.chomp
 	puts "----------------------------------\n"
 
@@ -84,18 +85,21 @@ while (enemies[0].life_points > 0 || enemies[1].life_points > 0) && human.life_p
 		human.attacks(enemies[1])
 	end	
 	
+	# Si au moins encore un ennemi est toujours vivant, il(s) attaque(nt)
+	if (enemies[0].life_points > 0 || enemies[1].life_points > 0) && human.life_points > 0
 	puts "\nLes autres joueurs vous attaquent !\n\n"
 
 	# C'est le tour des ennemis d'attaquer.
 	# On fait le tour de l'array pour faire attaquer les ennemis vivants.
-	enemies.each do |enemy|
-		if enemy.life_points > 0
-			enemy.attacks(human)
-			puts = "" # Pour rajouter un saut de ligne
-		end
+		enemies.each do |enemy|
+			if enemy.life_points > 0
+				enemy.attacks(human)
+				puts = "" # Pour rajouter un saut de ligne
+			end
 	end
+end
 
-	# Fin de la boucle while
+# Fin de la boucle while
 end	
 
 puts "La partie est finie"

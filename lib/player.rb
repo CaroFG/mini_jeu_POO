@@ -10,7 +10,11 @@ class Player
 
 	# Méthode pour afficher les points de vie du personnage
 	def show_state
-		return "#{@name} a #{@life_points} points de vie" 
+		if @life_points > 0
+			return "#{@name} a #{@life_points} points de vie"
+		else
+			return "#{@name} est mort(e)"
+		end
 	end
 
 	# Méthode pour obtenir un nombre de dégats au hasard
@@ -22,7 +26,6 @@ class Player
 	def gets_damage(dmg)
 		# On soustrait les dégats aux points de vie
 		@life_points -= dmg
-
 	end
 
 	# Méthode pour qu'un joueur en attaque un autre
