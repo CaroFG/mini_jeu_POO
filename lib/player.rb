@@ -87,8 +87,23 @@ class HumanPlayer < Player
 	end
 
 	def search_health_pack
-		rand(1..6)
-		
+		roll_dice = rand(1..6)
+		if roll_dice == 1 
+			puts "Dommage, tu n'as rien trouvé"
+		elsif roll_dice >= 2 && roll_dice <= 5 
+			puts "Bravo tu as trouvé un pack +50 points de vie"
+			if @life_points + 50 > 100 
+				life_points = 100
+			else @life_points += 50
+			end
+		elsif roll_dice == 6
+			puts "Excellent, tu as trouvé un super pack +80 points de vie"
+			if @life_points + 80 > 100
+				life_points = 100
+			else life_points += 80
+			end
+		end
+
 	end
 
 end
