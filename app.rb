@@ -6,7 +6,7 @@ require_relative 'lib/player'
 require_relative 'lib/game'
 
 
-player1= Player.new("José")
+player1 = Player.new("José")
 player2 = Player.new("Josiane")
 
 puts "----- Welcome to the fight ! ----- \n\n"
