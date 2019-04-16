@@ -7,6 +7,7 @@ require_relative 'lib/game'
 
 
 
-player1 = Player.new("José")
+joueur1 = Player.new("José")
+joueur2 = Player.new("Josiane")
 
 binding.pry
