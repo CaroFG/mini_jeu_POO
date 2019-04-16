@@ -86,16 +86,25 @@ class HumanPlayer < Player
 		end 
 	end
 
+	# Méthode pour chercher des health packs
 	def search_health_pack
+		# On fait un lancer de dé
 		roll_dice = rand(1..6)
+		# Si le résultat vaut 1, on ne trouve rien, s'il vaut entre 2 et 5 le joueur
+		# trouve un health pack de +50 points de vie, si le résultat vaut 6,
+		# un de +80 points de vie.
 		if roll_dice == 1 
 			puts "Dommage, tu n'as rien trouvé"
+
 		elsif roll_dice >= 2 && roll_dice <= 5 
 			puts "Bravo tu as trouvé un pack +50 points de vie"
 			if @life_points + 50 > 100 
+				# Si le health pack fait dépasser les points de vie max (100),
+				# on repasse lesp oints de vie à 100.
 				life_points = 100
 			else @life_points += 50
 			end
+
 		elsif roll_dice == 6
 			puts "Excellent, tu as trouvé un super pack +80 points de vie"
 			if @life_points + 80 > 100
@@ -103,7 +112,7 @@ class HumanPlayer < Player
 			else life_points += 80
 			end
 		end
-
+		
 	end
 
 end
