@@ -1,6 +1,7 @@
 class Player
 	attr_accessor :name, :life_points
 
+
 	# Tous les joueurs comments avec un nom et 10 points de vie
 	def initialize(name)
 		@name = name
@@ -9,7 +10,7 @@ class Player
 
 	# Méthode pour afficher les points de vie du personnage
 	def show_state
-		return puts "#{@name} a #{@life_points} points de vie." 
+		return "#{@name} a #{@life_points} points de vie." 
 	end
 
 	# Méthode pour obtenir un nombre de dégats au hasard
