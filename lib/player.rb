@@ -37,7 +37,7 @@ class Player
 		# On enlève les dégats aux points de vie et on vérifie si le perso est mort grâce à gets_damage
 		attacked_player.gets_damage(damage)
 		# On affiche le résultat
-		puts "#{@name} a infligé #{damage} points de dégats à #{attacked_player.name}"
+		puts "Il/elle a infligé #{damage} points de dégats à #{attacked_player.name}"
 	end
 
 
