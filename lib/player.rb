@@ -21,11 +21,7 @@ class Player
 	def gets_damage(dmg)
 		# On soustrait les dégats aux points de vie
 		@life_points -= dmg
-		# Si les points de vie sont inférieurs ou égal à 0, le personnage est mort
-		# et on prévient l'utilisateur
-		if @life_points	<= 0 
-			puts "#{@name} est mort(e)."
-		end	
+
 	end
 
 	# Méthode pour qu'un joueur en attaque un autre
@@ -38,6 +34,12 @@ class Player
 		attacked_player.gets_damage(damage)
 		# On affiche le résultat
 		puts "Il/elle a infligé #{damage} points de dégats à #{attacked_player.name}"
+
+		# Si les points de vie sont inférieurs ou égal à 0, le personnage est mort
+		# et on prévient l'utilisateur
+		if attacked_player.life_points <= 0
+			puts "#{attacked_player.name} est mort(e)"
+		end	
 	end
 
 
